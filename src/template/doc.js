@@ -15,6 +15,9 @@ import { graphql } from "gatsby"
 
 export const docQuery = graphql`
   query DocsQuery($id: String) {
+    file(childMdx: {id: {eq: $id}}) {
+      relativePath
+    }
     mdx(id: { eq: $id }) {
       id
       body
@@ -55,6 +58,7 @@ const DocPage = ({ data: docQuery }) => {
               <Img fluid={image.childImageSharp.fluid} alt="Gatsby Docs are awesome"/>
             </div>
           ) : null}
+
             <div className="module">
               <div className="grid">
                 <div className="page-doc__content_header_text">
