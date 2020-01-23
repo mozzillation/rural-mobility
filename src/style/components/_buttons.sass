@@ -1,0 +1,66 @@
+.btn
+  display: inline-block !important
+  text-decoration: none
+  color: inherit
+  white-space: nowrap
+  flex-basis: auto
+  width: auto
+  font-size: 0.875rem
+
+  +animate(opacity, transform)
+
+  &:hover
+    opacity: 0.6
+    transform: translateY(-2px)
+
+  &-small
+    padding: $margin-small
+
+    @extend .btn
+
+  &-big
+    padding: $margin
+
+    @extend .btn
+
+  &-primary
+    border-radius: $radius
+    text-transform: uppercase
+    letter-spacing: 2px
+    font-size: 0.9rem
+
+    &_purple
+      background-color: $purple
+      color: $white !important
+
+      @extend .btn-primary
+
+    &_orange
+      background-color: $orange
+      color: $white !important
+
+      @extend .btn-primary
+
+    &_green
+      background-color: $green
+      color: $white !important
+
+      @extend .btn-primary
+
+  &-secondary
+    @extend .btn-primary
+
+    border-width: 1px
+    border-style: solid
+
+    &_purple
+      color: $purple
+      border-color: $purple
+
+      @extend .btn-secondary
+
+    &_orange
+      color: $orange
+      border-color: $orange
+
+      @extend .btn-secondary

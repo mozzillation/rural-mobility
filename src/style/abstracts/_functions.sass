@@ -1,0 +1,41 @@
+/*** Functions **
+ *
+ * From REM to PX
+ * @param {String} - dimension in pixel (es. 16px)
+
+@function calculateRem($size)
+  $remSize: $size / 16px
+
+  @return #{$remSize}rem
+
+=fontSize($size)
+  font-size: $size
+  font-size: calculateRem($size)
+  line-height: 1.35em
+
+/**
+ * Helper for mixin "animate"
+ * @param {String} - CSS Property you want to animate
+
+@function unfoldTransition($transition)
+  // Default values
+  $property: all
+  $duration: $transition-time
+  $easing: $transition-easing
+  $delay: null
+  $defaultProperties: $property, $duration, $easing, $delay
+
+  // Grab transition properties if they exist
+  $unfoldedTransition: ()
+
+  @for $i from 1 through length($defaultProperties)
+    $p: null
+
+    @if $i <= length($transition)
+      $p: nth($transition, $i)
+    @else
+      $p: nth($defaultProperties, $i)
+
+    $unfoldedTransition: append($unfoldedTransition, $p)
+
+  @return $unfoldedTransition

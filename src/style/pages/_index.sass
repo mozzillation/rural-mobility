@@ -1,0 +1,28 @@
+.page-index
+  &__intro
+    min-height: calc(100vh - 150px)
+    background-color: $grey-lightest
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: $margin 0
+
+    &_text
+      max-width: 40rem
+      margin: auto
+      text-align: center
+
+      h1
+        margin-bottom: $margin
+
+      p
+        max-width: 32rem
+        font-size: $size-5
+        margin: auto
+
+      &_bottom
+        padding-top: $margin * 2
+
+        .btn
+          &:nth-child(2)
+            margin-left: $margin-smaller

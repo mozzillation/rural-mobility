@@ -1,0 +1,90 @@
+.page-doc
+  &__content
+    width: calc(100vw - 20rem)
+    margin: 0 auto ($margin * 2) 20rem
+    background-color: $white
+    overflow: hidden
+
+    &_header
+      width: 100%
+
+      &_thumb
+
+        .gatsby-image-wrapper
+          height: 30rem
+          background-color: #78273c
+          position: relative
+          overflow: hidden
+
+
+
+
+        img
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          object-fit: contain
+
+      &_text
+        padding: ($margin * 2) 0
+        border-bottom: 1px solid $grey-light
+
+      span
+        font-size: $size-7
+        letter-spacing: 2px
+        margin-bottom: $margin
+        display: block
+        color: $grey
+        text-transform: uppercase
+
+      h1
+        font-size: $size-2
+        font-weight: $weight-normal
+
+    &_body
+      padding: ($margin * 2) 0
+      color: $black-ter
+
+      & > *
+        @extend .module
+
+        padding-top: $margin-small
+        padding-bottom: $margin-small
+
+      h1, h2, h3, h4, h5, h6
+        padding-bottom: 0 !important
+        padding-top: $margin * 2 !important
+
+      & > *:nth-child(1)
+        padding-top: 0 !important
+
+      h1
+        font-size: $size-2
+
+      h2
+        font-size: $size-3
+
+      h3
+        font-size: $size-4
+
+      p, li
+        font-size: 19px
+        line-height: 30px
+
+      a
+        color: $green
+        text-decoration: none
+        border-bottom: 1px solid $green
+
+      li
+        list-style: none
+        position: relative
+        padding-left: 3rem
+
+        &:before
+          content: "\2192"
+          position: absolute
+          left: 1.5rem
+          font-family: $family-primary

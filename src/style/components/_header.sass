@@ -1,0 +1,57 @@
+.header
+  border-bottom: 1px solid $grey-lightest
+  font-family: $family-primary
+  line-height: 1em
+  padding: 0 $margin
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 999
+  background: $white
+
+  &__wrapper
+    display: flex
+    align-items: center
+    align-content: space-between
+    justify-content: space-between
+    min-height: 75px
+
+  &__logo
+    padding: $margin 0
+
+    +animate(opacity)
+
+    &:hover
+      opacity: 0.6
+
+    img
+      height: 25px
+      width: auto
+      display: block
+
+  &__nav
+    list-style: none
+    display: flex
+    justify-content: flex-start
+    width: 100%
+    padding: 0px $margin-small
+
+    &_item
+      margin: 0px $margin-small
+
+      a
+        color: $black
+        text-decoration: none
+
+        +animate(color, opacity, background-color)
+
+        &:hover
+          color: $green
+
+        &.is-active
+          border-bottom: 1px solid $green
+          color: $green
+
+  &__contribute
+    text-align: right

@@ -1,0 +1,25 @@
+/*** Mixins **
+
+/**
+ * Generate Responsive function
+ * @param {String} - device
+
+=mq($mq-breakpoint, $mq-breakpoints: $breakpoints)
+  // If $mq-breakpoint is a key that exists in
+  // $mq-breakpoints, get and use the value
+  @if map-has-key($mq-breakpoints, $mq-breakpoint)
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
+
+  @media screen and (min-width: #{$mq-breakpoint})
+    @content
+
+/**
+ * Animate properties
+ * @param {String} - properties you want to animate
+=animate($transitions...)
+  $unfoldedTransitions: ()
+
+  @each $transition in $transitions
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma)
+
+  transition: $unfoldedTransitions

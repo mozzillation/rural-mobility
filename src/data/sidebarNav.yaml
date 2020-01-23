@@ -1,0 +1,13 @@
+- title: Introduzione
+  key: introduction
+  breadcrumbTitle: Docs
+  items:
+    - title: Una nuova ruralità in movimento
+      link: /doc/
+
+- title: Contribuire
+  key: contribute
+  breadcrumbTitle: Contribuire
+  items:
+    - title: Codice di Condotta
+      link: /doc/code-of-conduct

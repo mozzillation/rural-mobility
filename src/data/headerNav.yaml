@@ -1,0 +1,9 @@
+- title: Main Navigation
+  key: main-nav
+  items:
+    - title: Docs
+      link: /doc/
+    - title: Il Progetto
+      link: /about
+    - title: Risorse
+      link: /resources
