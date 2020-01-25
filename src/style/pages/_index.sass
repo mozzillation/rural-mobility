@@ -1,11 +1,29 @@
 .page-index
   &__intro
-    min-height: calc(100vh - 150px)
-    background-color: $grey-lightest
+    min-height: calc(100vh - 300px)
     display: flex
     flex-direction: column
     justify-content: center
     padding: $margin 0
+    position: relative
+
+    &_bg
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: -10
+
+      video
+        position: absolute
+        bottom: 0
+        right: 0
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        object-fit: cover
 
     &_text
       max-width: 40rem
@@ -15,14 +33,39 @@
       h1
         margin-bottom: $margin
 
-      p
-        max-width: 32rem
-        font-size: $size-5
-        margin: auto
-
       &_bottom
         padding-top: $margin * 2
 
         .btn
-          &:nth-child(2)
-            margin-left: $margin-smaller
+          margin: $margin-smaller
+
+    &_subtext
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      transform: translateY(calc(100vh - 350px))
+
+      &_card
+        background-color: $black
+        color: $white
+        border-radius: $radius-large
+        padding: $margin
+        text-align: center
+        box-shadow: 0px 0px 50px -20px $black
+
+        +mq(mobile)
+          text-align: left
+
+          .btn-small, .btn-big
+            width: 100%
+            text-align: center
+            margin: 0
+
+            &:first-child
+              margin-bottom: $margin
+
+
+        p
+          font-size: $size-5
+          margin: auto

@@ -1,7 +1,7 @@
 - title: Main Navigation
   key: main-nav
   items:
-    - title: Docs
+    - title: Documentazione
       link: /doc/
     - title: Il Progetto
       link: /about

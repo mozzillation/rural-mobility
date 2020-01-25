@@ -6,7 +6,7 @@ import "../style/main.sass"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Footer from "../components/footer"
+// import Footer from "../components/footer"
 import Img from "gatsby-image"
 
 import DocNavigation from "../components/navigation"
@@ -15,8 +15,15 @@ import { graphql } from "gatsby"
 
 export const docQuery = graphql`
   query DocsQuery($id: String) {
-    file(childMdx: { id: { eq: $id } }) {
-      relativePath
+    allSidebarNavYaml {
+      nodes {
+        id
+        title
+        items {
+          title
+          link
+        }
+      }
     }
     mdx(id: { eq: $id }) {
       id
@@ -41,18 +48,36 @@ export const docQuery = graphql`
 // Doc Full Page
 // ——————————————————————————————————————————————————————————————————————
 const DocPage = ({ data: docQuery }) => {
-  const { mdx, file } = docQuery
+  const { mdx, allSidebarNavYaml } = docQuery
   // var checkImage = mdx.frontmatter.featuredImage
   const image = mdx.frontmatter.featuredImage
+  const docs = allSidebarNavYaml.nodes
+
+  console.log(docs)
   return (
     <Layout>
       <SEO title={mdx.frontmatter.title} />
 
       <div className="page-doc">
-        <DocNavigation />
+        <DocNavigation docs={docs}/>
 
         <section className="page-doc__content">
           <header className="page-doc__content_header">
+
+          <div className="module">
+            <div className="grid">
+              <div className="page-doc__content_header_text">
+                {mdx.frontmatter.category ? (
+                  <span className="page-doc__content_header_text_category">
+                    {mdx.frontmatter.category}
+                  </span>
+                ) : null}
+
+                <h1>{mdx.frontmatter.title}</h1>
+              </div>
+            </div>
+          </div>
+
             {image ? (
               <div className="page-doc__content_header_thumb">
                 <Img
@@ -62,19 +87,6 @@ const DocPage = ({ data: docQuery }) => {
               </div>
             ) : null}
 
-            <div className="module">
-              <div className="grid">
-                <div className="page-doc__content_header_text">
-                  {mdx.frontmatter.category ? (
-                    <span className="page-doc__content_header_text_category">
-                      {mdx.frontmatter.category}
-                    </span>
-                  ) : null}
-
-                  <h1>{mdx.frontmatter.title}</h1>
-                </div>
-              </div>
-            </div>
           </header>
 
           <main className="page-doc__content_body">

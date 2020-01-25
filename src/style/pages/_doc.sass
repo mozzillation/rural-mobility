@@ -1,31 +1,42 @@
+@charset "UTF-8"
+
 .page-doc
+  width: 100vw
+  overflow: hidden
+
   &__content
-    width: calc(100vw - 20rem)
+    width: calc(100% - 20rem)
     margin: 0 auto ($margin * 2) 20rem
     background-color: $white
     overflow: hidden
+
+    +mq(tablet)
+      width: 100vw
+      margin: 0
+
 
     &_header
       width: 100%
 
       &_thumb
+        max-width: 50rem
+        margin: auto
+        padding: 0 $margin-small
+
         .gatsby-image-wrapper
-          height: 30rem
-          background-color: #78273c
+          background-color: $grey-lightest
           position: relative
           overflow: hidden
+          border-radius: $radius-large
+          box-shadow: $shadow
 
         img
-          position: absolute
-          top: 0
-          left: 0
-          right: 0
-          bottom: 0
-          object-fit: contain
 
       &_text
-        padding: ($margin * 2) 0
-        border-bottom: 1px solid $grey-light
+        padding: ($margin * 2) 0 $margin
+
+        +mq(mobile)
+          padding: $margin 0
 
       span
         font-size: $size-7
@@ -38,6 +49,9 @@
       h1
         font-size: $size-2
         font-weight: $weight-normal
+
+        +mq(mobile)
+          font-size: $size-2
 
     &_body
       padding: ($margin * 2) 0

@@ -75,7 +75,7 @@
     left: 100vw
     width: 100vw
     background-color: $black
-    z-index: 99
+    z-index: 999
     padding: 0 $margin
     color: $white
     bottom: 0
@@ -100,14 +100,50 @@
       &:last-child
         border-bottom: 0
 
-    a
-      color: $white
-      text-decoration: none
-      display: block
-      padding: $margin 0
+      & > a
+        color: $white
+        text-decoration: none
+        display: block
+        padding: $margin 0
 
-      &.is-active
-        color: $green
+        &.is-active
+          color: $green
+
+      &_sub
+        padding: 0 0 0 $margin-small
+        border-left: 1px solid $grey
+        margin: 0
+        margin-bottom: $margin
+
+        &_group
+          margin: 0
+          padding: 0 0 $margin
+
+          &:last-child
+            padding: 0
+
+            li:last-child
+              padding-bottom: 0
+
+          &_title
+            font-size: $size-7
+            line-height: $size-7
+            text-transform: uppercase
+            letter-spacing: 2px
+            color: $grey
+            display: block
+
+          li
+            text-decoration: none
+            border-bottom: 0
+            padding: $margin-smaller 0
+
+            a
+              color: $white
+              text-decoration: none
+
+              &.is-active
+                color: $green
 
   &__sidebarButton
     width: 32px

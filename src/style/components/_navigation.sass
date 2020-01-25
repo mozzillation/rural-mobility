@@ -8,6 +8,10 @@
   font-family: $family-primary
   border-right: 1px solid $grey-lightest
 
+  +mq(tablet)
+    transform: translateX(-20rem)
+
+
   &_group
     margin-bottom: $margin-small + $margin-smaller
 
@@ -40,3 +44,25 @@
           &.is-active
             color: $green
             border-bottom: 1px solid $green
+
+  // &__mobile
+  //   position: fixed
+  //   bottom: $margin
+  //   right: $margin-small
+  //   z-index: 9
+  //   width: auto
+  //   background-color: $white
+  //   padding: $margin $margin-small
+  //   box-shadow: $shadow
+  //   border-radius: $radius-large
+  //
+  //   &_btn
+  //     text-decoration: none
+  //     color: inherit
+  //     white-space: nowrap
+  //     flex-basis: auto
+  //     width: auto
+  //     font-size: 0.9rem
+  //     text-transform: uppercase
+  //     color: $orange
+  //     letter-spacing: 2px

@@ -7,9 +7,16 @@ body
   letter-spacing: 0.03em
   word-spacing: 0.001em
   -webkit-font-smoothing: antialiased
+  opacity: 1
+  overflow-x: hidden
+
+  +animate(opacity)
+
+  &.is-ready
+    opacity: 1
 
 .module
-  max-width: 720px
+  max-width: 768px
   margin: auto
   padding: 0 $margin
   width: 100%
@@ -17,3 +24,4 @@ body
 .content
   position: relative
   margin-top: 75px
+  width: 100vw

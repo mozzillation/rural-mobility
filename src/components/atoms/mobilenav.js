@@ -1,8 +1,8 @@
 import { Link } from "gatsby"
-import React, { useState } from "react"
-import PropTypes, { bool, func } from "prop-types"
+import React from "react"
+import { bool } from "prop-types"
 
-const MobileNavigation = ({ open, links }) => {
+const MobileNavigation = ({ open, links, docs }) => {
   return (
     <nav
       open={open}
@@ -17,14 +17,28 @@ const MobileNavigation = ({ open, links }) => {
           >
             {item.title}
           </Link>
+
+          {i === 0 ?
+            <ul className="header__mobileNav_item_sub">
+              {docs.map((item, i) => (
+                <div className="header__mobileNav_item_sub_group" key={item.id}>
+                  <span className="header__mobileNav_item_sub_group_title">{item.title}</span>
+                  <ul className="header__mobileNav_item_sub_group_sub">
+                    {item.items.map((child, i) => (
+                      <li className="header__mobileNav_item_sub_group_sub_item" key={i}>
+                        <Link to={child.link} activeClassName="is-active">
+                          {child.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </ul>
+            : null}
+
         </li>
       ))}
-
-      <li className="header__mobileNav_item">
-        <Link to="/contribute" activeClassName="is-active">
-          Contribuisci
-        </Link>
-      </li>
     </nav>
   )
 }

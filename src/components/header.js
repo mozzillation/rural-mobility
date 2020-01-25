@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
-import PropTypes, { bool, func } from "prop-types"
+import PropTypes from "prop-types"
 
 import Burger from "./atoms/burger"
 import MobileNavigation from "./atoms/mobilenav"
@@ -20,6 +20,16 @@ const Header = ({ siteTitle }) => {
           items {
             link
             title
+          }
+        }
+      }
+      allSidebarNavYaml {
+        nodes {
+          id
+          title
+          items {
+            title
+            link
           }
         }
       }
@@ -69,6 +79,7 @@ const Header = ({ siteTitle }) => {
         open={open}
         setOpen={setOpen}
         links={data.allHeaderNavYaml.nodes[0].items}
+        docs={data.allSidebarNavYaml.nodes}
       />
     </>
   )

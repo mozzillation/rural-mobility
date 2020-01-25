@@ -3,7 +3,6 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-
 // eslint-disable-next-line
 String.prototype.capitalize = function() {
   return this.replace(/(?:^|\s)\S/g, function(a) {

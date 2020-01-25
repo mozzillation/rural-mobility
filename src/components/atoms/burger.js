@@ -1,6 +1,7 @@
-import { Link } from "gatsby"
-import React, { useState } from "react"
-import PropTypes, { bool, func } from "prop-types"
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
+import React from "react"
+import { bool, func } from "prop-types"
 
 const Burger = ({ open, setOpen }) => {
   return (

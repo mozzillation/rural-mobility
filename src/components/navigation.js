@@ -1,29 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { useStaticQuery, graphql } from "gatsby"
-
-const DocNavigation = () => {
-  const navQuery = useStaticQuery(graphql`
-    query {
-      allSidebarNavYaml {
-        nodes {
-          id
-          title
-          items {
-            title
-            link
-          }
-        }
-      }
-    }
-  `)
-
-  // console.log(navQuery.allSidebarNavYaml.nodes)
-
+const DocNavigation = ({ docs }) => {
   return (
+    <>
     <aside className="navSidebar">
-      {navQuery.allSidebarNavYaml.nodes.map((item, i) => (
+      {docs.map((item, i) => (
         <div className="navSidebar_group" key={item.id}>
           <span className="navSidebar_group_title">{item.title}</span>
           <ul className="navSidebar_group_sub">
@@ -38,6 +20,7 @@ const DocNavigation = () => {
         </div>
       ))}
     </aside>
+    </>
   )
 }
 
