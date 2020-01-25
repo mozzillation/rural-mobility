@@ -55,7 +55,7 @@ const DocPage = ({ data: docQuery }) => {
           <header className="page-doc__content_header">
           {image ? (
             <div className="page-doc__content_header_thumb">
-              <Img fluid={image.childImageSharp.fluid} alt="Gatsby Docs are awesome"/>
+              <Img fluid={image.childImageSharp.fluid} alt={mdx.frontmatter.title}/>
             </div>
           ) : null}
 

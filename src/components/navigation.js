@@ -19,7 +19,7 @@ const DocNavigation = () => {
     }
   `)
 
-  console.log(navQuery.allSidebarNavYaml.nodes)
+  // console.log(navQuery.allSidebarNavYaml.nodes)
 
   return (
     <aside className="navSidebar">

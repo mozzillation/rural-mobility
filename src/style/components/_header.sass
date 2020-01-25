@@ -37,6 +37,10 @@
     width: 100%
     padding: 0px $margin-small
 
+    +mq(mobile)
+      display: none
+
+
     &_item
       margin: 0px $margin-small
 
@@ -55,3 +59,91 @@
 
   &__contribute
     text-align: right
+
+    +mq(mobile)
+      display: none
+
+  &__hamburger
+    display: none
+
+    +mq(mobile)
+      display: block
+
+  &__mobileNav
+    position: fixed
+    top: 75px
+    left: 100vw
+    width: 100vw
+    background-color: $black
+    z-index: 99
+    padding: 0 $margin
+    color: $white
+    bottom: 0
+    transform: translateX(0vw)
+    display: none
+
+    +mq(mobile)
+      display: block
+
+
+    +animate(transform)
+
+    &.is-open
+      transform: translateX(-100vw)
+
+    &_item
+      list-style: none
+      font-size: $size-5
+      line-height: $size-3
+      border-bottom: 1px solid $white
+
+      &:last-child
+        border-bottom: 0
+
+    a
+      color: $white
+      text-decoration: none
+      display: block
+      padding: $margin 0
+
+      &.is-active
+        color: $green
+
+  &__sidebarButton
+    width: 32px
+    height: 32px
+    display: none
+    position: relative
+    outline: none
+    overflow: hidden
+
+    +mq(mobile)
+      display: block
+
+
+    &_bar
+      width: 100%
+      position: absolute
+      left: 0
+      right: 0
+      height: 2px
+      background-color: $black
+      transition: top cubic-bezier(0.23, 1, 0.32, 1) 0.25s 0.25s, bottom cubic-bezier(0.23, 1, 0.32, 1) 0.25s 0.25s, margin cubic-bezier(0.23, 1, 0.32, 1) 0.25s 0.25s, -webkit-transform cubic-bezier(0.23, 1, 0.32, 1) 0.25s 0s
+
+      &:first-child
+        top: 10px
+
+      &:last-child
+        bottom: 10px
+
+    &.is-open
+      i
+        transition: top cubic-bezier(0.23, 1, 0.32, 1) 0.25s 0s, bottom cubic-bezier(0.23, 1, 0.32, 1) 0.25s 0s, margin cubic-bezier(0.23, 1, 0.32, 1) 0.25s 0s, -webkit-transform cubic-bezier(0.23, 1, 0.32, 1) 0.25s 0.25s
+
+        &:first-child
+          top: 15px
+          transform: rotate(45deg)
+
+        &:last-child
+          bottom: 15px
+          transform: rotate(-45deg)

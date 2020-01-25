@@ -9,15 +9,11 @@
       width: 100%
 
       &_thumb
-
         .gatsby-image-wrapper
           height: 30rem
           background-color: #78273c
           position: relative
           overflow: hidden
-
-
-
 
         img
           position: absolute
@@ -55,7 +51,7 @@
 
       h1, h2, h3, h4, h5, h6
         padding-bottom: 0 !important
-        padding-top: $margin * 2 !important
+        padding-top: ($margin * 2) !important
 
       & > *:nth-child(1)
         padding-top: 0 !important
@@ -84,7 +80,7 @@
         padding-left: 3rem
 
         &:before
-          content: "\2192"
+          content: "→"
           position: absolute
           left: 1.5rem
           font-family: $family-primary

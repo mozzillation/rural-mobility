@@ -10,7 +10,7 @@
   @if map-has-key($mq-breakpoints, $mq-breakpoint)
     $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint)
 
-  @media screen and (min-width: #{$mq-breakpoint})
+  @media screen and (max-width: #{$mq-breakpoint})
     @content
 
 /**
