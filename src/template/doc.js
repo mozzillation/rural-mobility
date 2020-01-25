@@ -15,7 +15,7 @@ import { graphql } from "gatsby"
 
 export const docQuery = graphql`
   query DocsQuery($id: String) {
-    file(childMdx: {id: {eq: $id}}) {
+    file(childMdx: { id: { eq: $id } }) {
       relativePath
     }
     mdx(id: { eq: $id }) {
@@ -53,11 +53,14 @@ const DocPage = ({ data: docQuery }) => {
 
         <section className="page-doc__content">
           <header className="page-doc__content_header">
-          {image ? (
-            <div className="page-doc__content_header_thumb">
-              <Img fluid={image.childImageSharp.fluid} alt={mdx.frontmatter.title}/>
-            </div>
-          ) : null}
+            {image ? (
+              <div className="page-doc__content_header_thumb">
+                <Img
+                  fluid={image.childImageSharp.fluid}
+                  alt={mdx.frontmatter.title}
+                />
+              </div>
+            ) : null}
 
             <div className="module">
               <div className="grid">
