@@ -11,10 +11,10 @@ const IndexPage = () => (
     <div className="page-index">
       <section className="page-index__intro">
         <div className="page-index__intro_bg">
-        <video preload="true" autoPlay playsInline muted loop>
-        <source src={VideoIntro} type="video/mp4" />
-         Your browser does not support the video tag.
-       </video>
+          <video preload="true" autoPlay playsInline muted loop>
+            <source src={VideoIntro} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div className="module">
           <div className="page-index__intro_text">
@@ -26,7 +26,8 @@ const IndexPage = () => (
             <div className="page-index__intro_subtext_card">
               <p>
                 RMF è un framework open-source che aiuta le aziende di trasporto
-                pubblico a migliorare l'esperienza di mobilità nelle zone emarginate.
+                pubblico a migliorare l'esperienza di mobilità nelle zone
+                emarginate.
               </p>
 
               <div className="page-index__intro_text_bottom">

@@ -20,14 +20,14 @@ module.exports = {
     `gatsby-transformer-yaml`,
     `gatsby-plugin-mdx`,
     {
-    resolve: `gatsby-plugin-nprogress`,
-    options: {
-      // Setting a color is optional.
-      color: `tomato`,
-      // Disable the loading spinner.
-      showSpinner: false,
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `tomato`,
+        // Disable the loading spinner.
+        showSpinner: false,
+      },
     },
-  },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,19 +36,19 @@ module.exports = {
       },
     },
     {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [
-        {
-          resolve: `gatsby-remark-images`,
-          options: {
-            path: `${__dirname}/src/data/`,
-            maxWidth: 590,
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              path: `${__dirname}/src/data/`,
+              maxWidth: 590,
+            },
           },
-        },
-      ],
+        ],
+      },
     },
-  },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

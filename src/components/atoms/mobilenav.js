@@ -18,14 +18,19 @@ const MobileNavigation = ({ open, links, docs }) => {
             {item.title}
           </Link>
 
-          {i === 0 ?
+          {i === 0 ? (
             <ul className="header__mobileNav_item_sub">
               {docs.map((item, i) => (
                 <div className="header__mobileNav_item_sub_group" key={item.id}>
-                  <span className="header__mobileNav_item_sub_group_title">{item.title}</span>
+                  <span className="header__mobileNav_item_sub_group_title">
+                    {item.title}
+                  </span>
                   <ul className="header__mobileNav_item_sub_group_sub">
                     {item.items.map((child, i) => (
-                      <li className="header__mobileNav_item_sub_group_sub_item" key={i}>
+                      <li
+                        className="header__mobileNav_item_sub_group_sub_item"
+                        key={i}
+                      >
                         <Link to={child.link} activeClassName="is-active">
                           {child.title}
                         </Link>
@@ -35,8 +40,7 @@ const MobileNavigation = ({ open, links, docs }) => {
                 </div>
               ))}
             </ul>
-            : null}
-
+          ) : null}
         </li>
       ))}
     </nav>

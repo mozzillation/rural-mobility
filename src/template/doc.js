@@ -59,24 +59,23 @@ const DocPage = ({ data: docQuery }) => {
       <SEO title={mdx.frontmatter.title} />
 
       <div className="page-doc">
-        <DocNavigation docs={docs}/>
+        <DocNavigation docs={docs} />
 
         <section className="page-doc__content">
           <header className="page-doc__content_header">
+            <div className="module">
+              <div className="grid">
+                <div className="page-doc__content_header_text">
+                  {mdx.frontmatter.category ? (
+                    <span className="page-doc__content_header_text_category">
+                      {mdx.frontmatter.category}
+                    </span>
+                  ) : null}
 
-          <div className="module">
-            <div className="grid">
-              <div className="page-doc__content_header_text">
-                {mdx.frontmatter.category ? (
-                  <span className="page-doc__content_header_text_category">
-                    {mdx.frontmatter.category}
-                  </span>
-                ) : null}
-
-                <h1>{mdx.frontmatter.title}</h1>
+                  <h1>{mdx.frontmatter.title}</h1>
+                </div>
               </div>
             </div>
-          </div>
 
             {image ? (
               <div className="page-doc__content_header_thumb">
@@ -86,7 +85,6 @@ const DocPage = ({ data: docQuery }) => {
                 />
               </div>
             ) : null}
-
           </header>
 
           <main className="page-doc__content_body">
