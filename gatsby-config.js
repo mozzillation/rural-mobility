@@ -1,10 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `RMF — Rural Mobility Framework`,
+    title: `Rural Mobility Framework`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@mozzillation`,
   },
-  pathPrefix: "/rural-mobility",
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -20,6 +19,15 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-mdx`,
+    {
+    resolve: `gatsby-plugin-nprogress`,
+    options: {
+      // Setting a color is optional.
+      color: `tomato`,
+      // Disable the loading spinner.
+      showSpinner: false,
+    },
+  },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
