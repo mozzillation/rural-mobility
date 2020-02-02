@@ -1,5 +1,8 @@
 export const onRenderBody = ({ setBodyAttributes }) => {
   setBodyAttributes({
-      className: 'no-js'
-    });
+      className: 'no-js',
+      style: {
+        display: 'none',
+    }
+  });
 };
