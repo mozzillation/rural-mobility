@@ -7,6 +7,9 @@ export const onClientEntry = a => {
   console.log(pluginOptions)
 
   window.onload = () => {
+
+    document.body.className = document.body.className.replace(/\bno-js\b/, '');
+
     function hasTouch() {
       return (
         "ontouchstart" in document.documentElement ||
