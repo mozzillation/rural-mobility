@@ -5,6 +5,13 @@
     - title: Una nuova ruralità in movimento
       link: /doc/
 
+- title: Soluzioni Smart
+  key: smart-solution
+  breadcrumbTitle: Soluzioni Smart
+  items:
+    - title: Segnaletica digitale
+      link: /doc/real-time-data
+
 - title: Contribuire
   key: contribute
   breadcrumbTitle: Contribuire

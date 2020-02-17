@@ -1,0 +1,61 @@
+---
+title: Dati in tempo reale con segnaletica digitale
+category: Soluzioni Smart
+slug: doc/real-time-data
+featuredImage: ../../images/test.png
+---
+import Callout from "../../components/callout"
+import Immagine from "../../components/image"
+
+
+# Introduzione
+
+Con l'avvento del GPS e dell’onnipresente rete cellulare, è diventato possibile monitorare i veicoli in tempo reale per una migliore gestione dei trasporti. Queste tecnologie possono essere applicate ai sistemi di trasporto pubblico, in particolare agli autobus, che non sono in grado di aderire agli orari predefiniti a causa di ingorghi, guasti, ecc. L'aumento dei tempi di attesa e l'incertezza nell'arrivo degli autobus rendono il sistema di trasporto pubblico poco attraente per i passeggeri.
+
+Un sistema di informazioni sui passeggeri in tempo reale (anche detto RTPIS, real-time passenger information service) utilizza una varietà di tecnologie per tenere traccia delle posizioni degli autobus in tempo reale e utilizza queste informazioni per generare previsioni sugli arrivi alle fermate lungo il percorso. Quando queste informazioni vengono condivise con i passeggeri, quest’ultimi possono trascorrere il loro tempo in modo efficiente e raggiungere la fermata appena prima dell'arrivo del bus, oppure prendere mezzi di trasporto alternativi. Possono persino pianificare i loro viaggi molto prima di intraprenderli. Ciò renderà il sistema di trasporto pubblico competitivo e adatto ai passeggeri. L'uso di veicoli privati è ridotto quando più persone usano veicoli di trasporto pubblico, il che a sua volta riduce il traffico e l'inquinamento: l’integrazione di questo tipo di servizio può aumentare la fiducia dei passeggeri verso il trasporto pubblico locale. Questo tipo di sistema permette, dunque, di fornire informazioni in tempo reale ai passeggeri, permettendo loro di prendere decisioni ponderate per quanto riguarda modalità, rotte e orari.
+
+<Immagine src="rtpis-map.png" />
+
+Questo framework può essere suddiviso in due contesti: un contesto *pre-viaggio* e un contesto *durante il viaggio*. Il primo contesto fornisce informazioni come orari, tariffe e percorsi molto prima dell'inizio del viaggio, attraverso internet. Il secondo, invece, fornice informazioni quali geolocalizzazione e punti di interesse mentre si è in movimento.
+
+Questo tipo di servizio si avvale di 3 elementi: **veicoli** (come i bus), **fermate o stazioni** e, infine, un software di calcolo e analisi dati che qui definiremo come **server**.
+
+# Veicoli
+
+Il veicolo è l’unità in movimento di cui si vuole seguire il percorso. Affinché un veicolo comunichi la propria posizione con un server o un satellite, è necessario l’utilizzo di un dispositivo hardware ad hoc o, in alternativa, uno smartphone di ultima generazione. In questo caso, è preferibile l’utilizzo di quest’ultimo: l’autista può, ad esempio, collegare il proprio dispositivo mobile ad un sito web o ad un’applicazione, comunicando in tempo reale la posizione GPS dello smartphone e, quindi, del veicolo da lui gestito.
+
+Attraverso un’applicazione o una pagina web, il veicolo assolve, in due fasi diverse, a varie funzioni:
+
+- Prima del viaggio, l’autista associa il veicolo ad una tratta. Ogni veicolo deve essere identificato con un ID univoco (es. la targa del bus), il quale viene associato all’ID di una tratta, valore a cui sono associate tutte le coordinate dei punti di interesse (ovvero le fermate lungo il tragitto);
+- Durante il viaggio, il veicolo deve comunicare periodicamente al server centrale la propria posizione, la direzione e la velocità di percorrenza. In questa fase, attraverso una UI fornita dall’applicazione o dalla pagina web, l’autista è chiamato a segnalato ritardi e guasti.
+
+<Callout title="Pro Tips" color="yellow">
+  Inferfaccia audio
+</Callout>
+
+
+# Server
+
+Il server è il cuore del sistema di RTPIS. Questo assolve molteplici funzioni tra cui:
+
+- Gestire un database in cui sono presenti informazioni su veicoli, fermate, percorsi e orari;
+- Ricevere in tempo reale dati quali coordinate e velocità dei veicoli;
+- Analizzare i dati ricevuti e fornire l‘ETA tra un veicolo e le varie fermate successive;
+- Renderizzare pagine web con la visualizzazione dei dati analizzati, consentendo così agli utenti di tenere traccia degli autobus in tempo reale, visualizzare la mappa del percorso di qualsiasi tratta e ottenere l’ETA per qualsiasi fermata e pianificare di conseguenza i propri viaggi.
+
+## Il database
+All’interno di un database, il server deve collezionare informazioni relative a bus, percorsi e fermate sotto forma di tabelle. Un database di questo tipo può essere organizzato in molti modi, per ridurre i requisiti di memoria e migliorare le prestazioni, in quanto le *query* in tempo reale richiedono forza di calcolo maggiore. È possibile suddividere il database in tabelle *statiche* e *dinamiche*.
+
+
+- La tabella **BUS** memorizza dati statici dei veicoli della flotta, quali ID univoco (es. la targa), numero di posti disponibili, etc.
+- La tabella **POSITION** dinamica restituisce gli ultimi dati GPS di un veicolo, quali ultime coordinate, velocità (attuale e media, ovvero la media ponderata della velocità corrente e della velocità media precedente), status (es. “guasto” qualora l’autista segnalasse dei problemi o un incidente), fermata successiva, ETA per la prossima fermata.
+- La tabella **LOGS** colleziona in modo dinamico tutti i cambiamenti alla posizioni, alla velocità e alla direzione dei bus: è consigliato salvare questi dati periodicamente a distanza ravvicinata (es. ogni 3 minuti) e utilizzarli successivamente per future analisi, per migliorare la predizione degli orari o alimentare un algoritmo di *machine learning*.
+- Una tabella **NODE** in cui collezionare le coordinate dei punti di interesse come le fermate;
+- Una tabella **LINK** in cui collezionare il collegamento tra una coppia di nodi. Il tempo di percorrenza del collegamento viene aggiornato dinamicamente quando un autobus raggiunge la fine del collegamento.
+- Una tabella **ROUTE**: la tratta è data dalla somma di più nodi e dei rispettivi collegamenti. Per memorizzare le informazioni sul percorso, un percorso viene modellato come un insieme di nodi, che possono essere fermate o curve critiche. Nodi adiacenti creano collegamenti, pertanto, un percorso è caratterizzato da un insieme ordinato di collegamenti. La posizione corrente di un bus all’interno di un collegamento e il tempo stimato per raggiungere la fine del collegamento vengono calcolati e memorizzati nella tabella **POSITION** alla ricezione di un aggiornamento dal veicolo;
+- Una tabella **STOPS** dinamica in cui vengono elencate tutte le fermate, quali tratte le attraversano e l’ETA per ognuna di essa.
+
+
+# Fermate e Stazioni
+
+Le fermate o le stazioni sono i punti in cui i passeggeri possono accedere all’ETA dei bus in arrivo. Per accedere a tali informazioni, qualora non fosse possibile installare un’unità video presso ogni fermata, si suggerisce di disporre un codice QR univoco: l’utente, scannerizzando il QR in questione, potrà visualizzare i dati della fermata in questione e lo stato degli bus in arrivo direttamente dal proprio smartphone.

@@ -19,7 +19,7 @@
       width: 100%
 
       &_thumb
-        max-width: 50rem
+        max-width: 60rem
         margin: auto
         padding: 0 $margin-small
 
@@ -49,6 +49,7 @@
       h1
         font-size: $size-2
         font-weight: $weight-normal
+        line-height: $size-1
 
         +mq(mobile)
           font-size: $size-2
@@ -58,30 +59,64 @@
       color: $black-ter
 
       & > *
-        @extend .module
-
-        padding-top: $margin-small
-        padding-bottom: $margin-small
+        padding-top: $margin-small !important
+        padding-bottom: $margin-small !important
 
       h1, h2, h3, h4, h5, h6
+        @extend .module
+
         padding-bottom: 0 !important
-        padding-top: ($margin * 2) !important
+        padding-top: ($margin * 3) !important
+        font-weight: $weight-normal
 
       & > *:nth-child(1)
         padding-top: 0 !important
 
-      h1
-        font-size: $size-2
+      .imageWrapper
+        max-width: 60rem
+        margin: $margin auto
 
-      h2
+        .gatsby-image-wrapper
+          background-color: $grey-lightest
+          position: relative
+          overflow: hidden
+          border-radius: $radius-large
+          box-shadow: $shadow
+
+      img
+        width: 100%
+        height: auto
+        position: relative
+        display: block
+        border: 1px solid $grey-lightest
+        border-radius: $radius-large
+        box-shadow: $shadow
+
+      hr
+        width: 100%
+        padding: 0 !important
+        border: 0
+        height: 1px
+        background-color: $grey-lighter
+        margin: $margin 0
+
+      h1
         font-size: $size-3
 
-      h3
+      h2
         font-size: $size-4
 
+      h3
+        font-size: $size-5
+
       p, li
-        font-size: 19px
-        line-height: 30px
+        font-size: 18px
+        line-height: 32px
+
+        @extend .module
+
+      strong
+        font-weight: $weight-bold
 
       a
         color: $green

@@ -20,6 +20,14 @@ exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
   }
 }
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  })
+}
+
 const path = require("path")
 const slash = require(`slash`)
 const { createFilePath, createNodeField } = require(`gatsby-source-filesystem`)
