@@ -53,7 +53,7 @@ const DocPage = ({ data: docQuery }) => {
   const image = mdx.frontmatter.featuredImage
   const docs = allSidebarNavYaml.nodes
 
-  console.log(docs)
+  // console.log(docs)
   return (
     <Layout>
       <SEO title={mdx.frontmatter.title} />

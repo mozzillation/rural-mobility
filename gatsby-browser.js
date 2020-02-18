@@ -2,12 +2,10 @@ import NProgress from "nprogress"
 
 export const onClientEntry = a => {
   const pluginOptions = { color: `#FF470F`, showSpinner: true }
-  console.log(pluginOptions)
 
   window.onload = () => {
-
-    document.body.className = document.body.className.replace(/\bno-js\b/, '');
-    document.body.style.removeProperty('display');
+    document.body.className = document.body.className.replace(/\bno-js\b/, "")
+    document.body.style.removeProperty("display")
 
     function hasTouch() {
       return (
