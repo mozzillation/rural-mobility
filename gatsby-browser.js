@@ -1,4 +1,5 @@
 import NProgress from "nprogress"
+import "./src/style/main.sass"
 
 export const onClientEntry = a => {
   const pluginOptions = { color: `#FF470F`, showSpinner: true }

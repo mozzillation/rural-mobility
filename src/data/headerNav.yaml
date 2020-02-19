@@ -2,7 +2,7 @@
   key: main-nav
   items:
     - title: Documentazione
-      link: /doc/
+      link: /doc
     - title: Il Progetto
       link: /about
     - title: Risorse

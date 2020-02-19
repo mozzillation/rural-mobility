@@ -1,6 +1,9 @@
+*
+  box-sizing: border-box
+
 .page-index
   &__intro
-    min-height: calc(100vh - 300px)
+    min-height: calc(100vh - 400px)
     display: flex
     flex-direction: column
     justify-content: center
@@ -40,19 +43,14 @@
           margin: $margin-smaller
 
     &_subtext
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      transform: translateY(calc(100vh - 350px))
+      width: 100%
 
       &_card
-        background-color: $black
-        color: $white
-        border-radius: $radius-large
-        padding: $margin
+        background-color: $white
+        color: $black
+        padding: $margin-large 0
         text-align: center
-        box-shadow: 0px 0px 50px -20px $black
+        box-shadow: 0px 30px 50px -40px $grey-lighter
 
         +mq(mobile)
           text-align: left
@@ -69,3 +67,79 @@
         p
           font-size: $size-5
           margin: auto
+
+  &__latest
+    overflow: hidden
+    position: relative
+    padding: $margin-largest 0
+
+    h2
+      font-size: $size-4
+      text-align: center
+      padding-bottom: $margin
+      margin-bottom: $margin
+      color: $grey-light
+      position: relative
+
+      &::after
+        content: " "
+        width: $margin-large
+        position: absolute
+        bottom: 0
+        left: 50%
+        margin-left: -$margin
+        right: auto
+        height: 2px
+        background-color: $grey-lightest
+
+    &_items
+      width: 100vw
+      overflow: hidden
+      display: flex
+      align-items: flex-start
+      align-content: center
+      justify-content: center
+      flex-direction: row
+      box-sizing: border-box
+
+      +mq(mobile)
+        flex-direction: column
+        padding: 0 $margin
+
+    &_item
+      max-width: 400px
+      width: 100%
+      margin: $margin-small
+
+      +mq(mobile)
+        margin: $margin 0
+        min-width: auto
+        width: 100%
+
+
+      .category
+        font-size: $size-7
+        letter-spacing: 2px
+        margin-bottom: $margin-smaller
+        display: block
+        color: $grey
+        text-transform: uppercase
+
+      .title
+        font-size: $size-5
+        line-height: $size-3
+
+      a
+        display: block
+        text-decoration: none
+        color: inherit
+
+        +animate(opacity)
+
+        &:hover
+          opacity: 0.6
+
+      &_thumb
+        overflow: hidden
+        border-radius: $radius-large
+        margin-bottom: $margin-small

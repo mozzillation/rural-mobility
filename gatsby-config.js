@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Rural Mobility Framework`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `RMF è un framework open-source che aiuta le aziende di trasporto pubblico a migliorare l'esperienza di mobilità nelle zone emarginate.`,
     author: `@mozzillation`,
   },
   plugins: [
@@ -24,7 +24,18 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-yaml`,
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        remarkPlugins: [require("remark-slug")],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -150,
+      },
+    },
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {

@@ -1,0 +1,44 @@
+.contribute
+  &__editLink
+    font-size: $size-6
+    color: $grey
+    padding: $margin 0 $margin-largest 0
+
+    a
+      color: inherit
+      text-decoration: none
+      border-bottom: 1px solid $grey
+
+      +animate(border, color)
+
+      &:hover
+        color: $green
+        border-bottom: 1px solid $green
+
+  &__footer
+    width: 100%
+    background-color: $purple
+    color: $pink
+    padding: $margin-large 0
+    text-align: center
+    min-height: 300px
+    z-index: 9999
+    position: relative
+
+    h6
+      opacity: 0.6
+      letter-spacing: 2px
+      text-transform: uppercase
+
+    h2
+      padding: $margin 0
+      font-size: $size-3
+
+      span
+        display: block
+
+        +mq(mobile)
+          display: inline
+
+    p
+      margin-bottom: $margin-large

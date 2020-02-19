@@ -6,10 +6,12 @@ import "../style/main.sass"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import Footer from "../components/footer"
+import Footer from "../components/footer"
+import DocNavigation from "../components/navigation"
+import { EditLink, ContributeFooter } from "../components/contribute"
 import Img from "gatsby-image"
 
-import DocNavigation from "../components/navigation"
+import TableOfContents from "../components/toc"
 
 import { graphql } from "gatsby"
 
@@ -26,11 +28,25 @@ export const docQuery = graphql`
       }
     }
     mdx(id: { eq: $id }) {
+      parent {
+        id
+        ... on File {
+          id
+          name
+          relativePath
+          modifiedTime(fromNow: true, locale: "it")
+        }
+      }
       id
       body
+      headings {
+        depth
+        value
+      }
       frontmatter {
         title
         category
+        slug
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 800) {
@@ -52,6 +68,8 @@ const DocPage = ({ data: docQuery }) => {
   // var checkImage = mdx.frontmatter.featuredImage
   const image = mdx.frontmatter.featuredImage
   const docs = allSidebarNavYaml.nodes
+  const editLink = mdx.parent.relativePath
+  const lastEdit = mdx.parent.modifiedTime
 
   // console.log(docs)
   return (
@@ -60,6 +78,11 @@ const DocPage = ({ data: docQuery }) => {
 
       <div className="page-doc">
         <DocNavigation docs={docs} />
+
+        <TableOfContents
+          current={mdx.frontmatter.slug}
+          headings={mdx.headings}
+        />
 
         <section className="page-doc__content">
           <header className="page-doc__content_header">
@@ -88,8 +111,12 @@ const DocPage = ({ data: docQuery }) => {
           </header>
 
           <main className="page-doc__content_body">
-            <MDXRenderer>{mdx.body}</MDXRenderer>
+            <MDXRenderer headings={mdx.headings}>{mdx.body}</MDXRenderer>
           </main>
+
+          <EditLink path={editLink} lastEdit={lastEdit} />
+          <ContributeFooter />
+          <Footer />
         </section>
       </div>
     </Layout>

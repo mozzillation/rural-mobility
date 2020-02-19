@@ -4,6 +4,77 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import VideoIntro from "../video/intro.mp4"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
+
+import Footer from "../components/footer"
+import { ContributeFooter } from "../components/contribute"
+
+import { useStaticQuery, graphql } from "gatsby"
+
+const LatestEdits = () => {
+  const latest = useStaticQuery(graphql`
+    query latestQuery {
+      allFile(
+        sort: { fields: modifiedTime, order: DESC }
+        filter: { extension: { eq: "mdx" } }
+        limit: 3
+      ) {
+        edges {
+          node {
+            id
+            childMdx {
+              frontmatter {
+                title
+                category
+                slug
+                featuredImage {
+                  childImageSharp {
+                    fluid(maxWidth: 800) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  console.log(latest.allFile.edges)
+
+  return (
+    <section className="page-index__latest">
+      <div className="module">
+        <h2>Contenuti aggiornati recentemente</h2>
+      </div>
+      <div className="page-index__latest_items">
+        {latest.allFile.edges.map((item, i) => (
+          <div className="page-index__latest_item">
+            <Link to={item.node.childMdx.frontmatter.slug}>
+              <div className="page-index__latest_item_thumb">
+                <Img
+                  fluid={
+                    item.node.childMdx.frontmatter.featuredImage.childImageSharp
+                      .fluid
+                  }
+                  alt={item.node.childMdx.frontmatter.title}
+                />
+              </div>
+              <div className="category">
+                {item.node.childMdx.frontmatter.category}
+              </div>
+              <div className="title">
+                {item.node.childMdx.frontmatter.title}
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
 
 const IndexPage = () => (
   <Layout>
@@ -21,27 +92,31 @@ const IndexPage = () => (
             <h1>Una nuova ruralità in movimento</h1>
           </div>
         </div>
-        <div className="page-index__intro_subtext">
+      </section>
+      <div className="page-index__intro_subtext">
+        <div className="page-index__intro_subtext_card">
           <div className="module">
-            <div className="page-index__intro_subtext_card">
-              <p>
-                RMF è un framework open-source che aiuta le aziende di trasporto
-                pubblico a migliorare l'esperienza di mobilità nelle zone
-                emarginate.
-              </p>
+            <p>
+              RMF è un framework open-source che aiuta le aziende di trasporto
+              pubblico a migliorare l'esperienza di mobilità nelle zone
+              emarginate.
+            </p>
 
-              <div className="page-index__intro_text_bottom">
-                <Link to="/doc" className="btn-big btn-primary_orange">
-                  Documentazione
-                </Link>
-                <Link to="/about" className="btn-big btn-secondary_orange">
-                  Il Progetto
-                </Link>
-              </div>
+            <div className="page-index__intro_text_bottom">
+              <Link to="/doc/" className="btn-big btn-primary_green">
+                Documentazione
+              </Link>
+              <Link to="/about" className="btn-big btn-secondary_green">
+                Il Progetto
+              </Link>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <LatestEdits />
+      <ContributeFooter />
+      <Footer />
     </div>
   </Layout>
 )
