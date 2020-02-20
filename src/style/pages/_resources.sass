@@ -1,0 +1,36 @@
+*
+  box-sizing: border-box
+
+.page-resources
+  &__intro
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: $margin-largest 0
+    position: relative
+    text-align: center
+    background-color: $grey-lightest
+
+    h1
+      position: relative
+      font-size: $size-1
+      font-weight: $weight-normal
+
+      +mq(mobile)
+        font-size: $size-3
+
+  &__cards
+    width: 100vw
+    overflow: hidden
+    display: flex
+    align-items: flex-start
+    align-content: center
+    justify-content: center
+    flex-direction: row
+    box-sizing: border-box
+    transform: translateY(-#{$margin-large})
+    padding-bottom: $margin-large
+
+    +mq(mobile)
+      flex-direction: column
+      padding: 0 $margin

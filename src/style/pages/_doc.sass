@@ -63,8 +63,8 @@
         padding-bottom: $margin-small !important
 
       h1, h2, h3, h4, h5, h6
-        @extend .module
-
+        max-width: calc(768px - #{$margin} * 2)
+        margin: auto auto $margin auto
         padding-bottom: 0 !important
         padding-top: ($margin * 4) !important
         font-weight: $weight-normal
@@ -100,6 +100,8 @@
 
       h1
         font-size: $size-3
+        border-bottom: 1px solid $grey-lighter
+        padding-bottom: $margin !important
 
       h2
         font-size: $size-4
