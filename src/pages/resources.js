@@ -25,6 +25,11 @@ const IndexPage = () => (
           image="resource-smarta.png"
           link="https://ruralsharedmobility.eu/"
         />
+        <Resource
+          name="Service Design Tools"
+          image="resource-sdt.png"
+          link="https://servicedesigntools.org/"
+        />
       </section>
     </div>
     <ContributeFooter />

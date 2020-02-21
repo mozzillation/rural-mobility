@@ -24,6 +24,8 @@ Questo framework può essere suddiviso in due contesti: un contesto _pre-viaggio
 
 Questo tipo di servizio si avvale di 3 elementi: **veicoli** (come i bus), **fermate o stazioni** e, infine, un software di calcolo e analisi dati che qui definiremo come **server**.
 
+# L'ecosistema
+
 ## Veicoli
 
 Il veicolo è l’unità in movimento di cui si vuole seguire il percorso. Affinché un veicolo comunichi la propria posizione con un server o un satellite, è necessario l’utilizzo di un dispositivo hardware ad hoc o, in alternativa, uno smartphone di ultima generazione. In questo caso, è preferibile l’utilizzo di quest’ultimo: l’autista può, ad esempio, collegare il proprio dispositivo mobile ad un sito web o ad un’applicazione, comunicando in tempo reale la posizione GPS dello smartphone e, quindi, del veicolo da lui gestito.
@@ -56,12 +58,12 @@ Il server è il cuore del sistema di RTPIS. Questo assolve molteplici funzioni t
 - Analizzare i dati ricevuti e fornire l‘ETA tra un veicolo e le varie fermate successive;
 - Renderizzare pagine web con la visualizzazione dei dati analizzati, consentendo così agli utenti di tenere traccia degli autobus in tempo reale, visualizzare la mappa del percorso di qualsiasi tratta e ottenere l’ETA per qualsiasi fermata e pianificare di conseguenza i propri viaggi.
 
-## Il database
+### Il database
 
 All’interno di un database, il server deve collezionare informazioni relative a bus, percorsi e fermate sotto forma di tabelle. Un database di questo tipo può essere organizzato in molti modi, per ridurre i requisiti di memoria e migliorare le prestazioni, in quanto le _query_ in tempo reale richiedono forza di calcolo maggiore. È possibile suddividere il database in tabelle _statiche_ e _dinamiche_.
 
 - La tabella **BUS** memorizza dati statici dei veicoli della flotta, quali ID univoco (es. la targa), numero di posti disponibili, etc.
-- La tabella **POSITION** dinamica \*\*\*\*restituisce gli ultimi dati GPS di un veicolo, quali ultime coordinate, velocità (attuale e media, ovvero la media ponderata della velocità corrente e della velocità media precedente), status (es. “guasto” qualora l’autista segnalasse dei problemi o un incidente), fermata successiva, ETA per la prossima fermata.
+- La tabella **POSITION** dinamica restituisce gli ultimi dati GPS di un veicolo, quali ultime coordinate, velocità (attuale e media, ovvero la media ponderata della velocità corrente e della velocità media precedente), status (es. “guasto” qualora l’autista segnalasse dei problemi o un incidente), fermata successiva, ETA per la prossima fermata.
 - La tabella **LOGS** colleziona in modo dinamico tutti i cambiamenti alla posizioni, alla velocità e alla direzione dei bus: è consigliato salvare questi dati periodicamente a distanza ravvicinata (es. ogni 3 minuti) e utilizzarli successivamente per future analisi, per migliorare la predizione degli orari o alimentare un algoritmo di _machine learning_.
 - Una tabella **NODE** in cui collezionare le coordinate dei punti di interesse come le fermate;
 - Una tabella **LINK** in cui collezionare il collegamento tra una coppia di nodi. Il tempo di percorrenza del collegamento viene aggiornato dinamicamente quando un autobus raggiunge la fine del collegamento.

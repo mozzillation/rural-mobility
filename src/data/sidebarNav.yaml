@@ -9,12 +9,16 @@
   key: smart-solution
   breadcrumbTitle: Soluzioni Smart
   items:
-    - title: Segnaletica digitale
+    - title: Creare touchpoint digitali
+      link: /doc/ui-toolkit
+    - title: Reinventare la segnaletica
       link: /doc/real-time-data
 
 - title: Contribuire
   key: contribute
   breadcrumbTitle: Contribuire
   items:
+    - title: Come contribuire
+      link: /doc/contribute
     - title: Codice di Condotta
       link: /doc/code-of-conduct

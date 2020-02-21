@@ -36,7 +36,7 @@ export const ContributeFooter = () => {
             contenuti: che tu sia designer o un passeggero, offri le tue
             competenze e rimetti in moto la mobilità rurale!
           </p>
-          <Link to="/contribute" className="btn-big btn-secondary_pink">
+          <Link to="/doc/contribute" className="btn-big btn-secondary_pink">
             Contribuisci ora
           </Link>
         </div>

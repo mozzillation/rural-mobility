@@ -49,7 +49,7 @@ export const docQuery = graphql`
         slug
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 900) {
               ...GatsbyImageSharpFluid
             }
           }

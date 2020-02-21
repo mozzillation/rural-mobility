@@ -66,7 +66,7 @@ const Header = ({ siteTitle }) => {
 
           <div className="header__contribute">
             <Link
-              to="/contribute"
+              to="/doc/contribute"
               activeClassName="is-active"
               className="btn-small btn-secondary_purple"
             >

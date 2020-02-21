@@ -8,6 +8,7 @@
   flex-direction: column
   padding-top: $margin-large
   z-index: 999
+  color: $grey-light
 
   +mq(tablet)
     display: none
@@ -46,16 +47,22 @@
       +animate(width, opacity)
 
     &-1
-      padding-left: $margin
+      padding-left: $margin-small
 
       .abstract
         width: 30px
 
     &-2
+      padding-left: $margin
+
+      .abstract
+        width: 20px
+
+    &-3
       padding-left: $margin-large
 
       .abstract
-        width: 15px
+        width: 10px
 
     a
       color: inherit
