@@ -27,6 +27,7 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         remarkPlugins: [require("remark-slug")],
+
       },
     },
     {
