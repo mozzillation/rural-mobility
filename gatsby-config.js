@@ -21,7 +21,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-yaml`,
     {
@@ -57,10 +56,16 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: `gatsby-remark-footnotes`,
             options: {
-              path: `${__dirname}/src/data/`,
-              maxWidth: 590,
+              footnoteBackRefPreviousElementDisplay: "inline",
+              footnoteBackRefDisplay: "inline",
+              footnoteBackRefInnerText: "^", // Defaults to: "↩"
+              //use if you want the Wikipedia style ^ link without an underline beneath it
+              footnoteBackRefAnchorStyle: `text-decoration: none;`,
+              //use "front" for Wikipedia style ^ links
+              footnoteBackRefInnerTextStartPosition: "front",
+              useFootnoteMarkerText: true, // Defaults to false
             },
           },
         ],
