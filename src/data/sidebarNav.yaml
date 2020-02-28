@@ -2,17 +2,26 @@
   key: introduction
   breadcrumbTitle: Docs
   items:
-    - title: Una nuova ruralità in movimento
+    - title: Progettare la mobilità rurale
       link: /doc
+
+- title: Design Thinking
+  key: design-thinking
+  breadcrumbTitle: Design
+  items:
+    - title: Definire la mobilità rurale
+      link: doc/develop-rural-mobility
 
 - title: Soluzioni Smart
   key: smart-solution
   breadcrumbTitle: Soluzioni Smart
   items:
-    - title: Creare touchpoint digitali
-      link: /doc/ui-toolkit
-    - title: Reinventare la segnaletica
+    - title: Informare con touchpoints digitali
+      link: /doc/touchpoints
+    - title: Segnaletica in real-time
       link: /doc/real-time-data
+    - title: Integrazioni di terze parti
+      link: /doc/integrations
 
 - title: Contribuire
   key: contribute
