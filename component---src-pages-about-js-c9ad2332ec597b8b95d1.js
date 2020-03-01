@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{"3XHS":function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),r=n.n(a),l=n("Bl7J"),o=n("vrFN");t.default=function(){return r.a.createElement(l.a,null,r.a.createElement(o.a,{title:"Il Progetto"}))}}}]);
+//# sourceMappingURL=component---src-pages-about-js-c9ad2332ec597b8b95d1.js.map
