@@ -47,7 +47,7 @@
         text-transform: uppercase
 
       h1
-        font-size: $size-2
+        font-size: $size-1
         font-weight: $weight-normal
         line-height: $size-1
 
@@ -63,10 +63,11 @@
         padding-bottom: $margin-small !important
 
       h1, h2, h3, h4, h5, h6
-        max-width: calc(768px - #{$margin} * 2)
-        margin: auto auto $margin auto
+        @extend .module
+
+        margin: auto auto $margin-small auto
         padding-bottom: 0 !important
-        padding-top: ($margin * 4) !important
+        padding-top: $margin-large !important
         font-weight: $weight-normal
 
       .imageWrapper
@@ -99,12 +100,27 @@
         margin: $margin 0
 
       h1
-        font-size: $size-3
-        border-bottom: 1px solid $grey-lighter
-        padding-bottom: $margin !important
+        font-size: $size-2
+        position: relative
+
+        @extend .module
+
+        +mq(mobile)
+          font-size: $size-3
+
+
+        &::before
+          position: absolute
+          left: $margin
+          right: $margin
+          bottom: -10px
+          width: auto
+          height: 1px
+          background: $grey-lightest
+          content: " "
 
       h2
-        font-size: $size-4
+        font-size: $size-3
 
       h3
         font-size: $size-5
@@ -133,3 +149,32 @@
           position: absolute
           left: 1.5rem
           font-family: $family-primary
+
+      table
+        border-spacing: 0
+        border-collapse: collapse
+        border: 1px solid $grey-lightest
+        word-break: keep-all
+        text-align: left
+        font-size: 19px
+        line-height: 32px
+        margin-top: $margin
+
+        @extend .module
+
+        thead
+          th
+            font-weight: $weight-bold
+
+        tr
+          min-height: 64px
+          border-bottom: 1px solid $grey-lightest
+
+        td, th
+          position: relative
+          border-right-width: 0
+          border-bottom-width: 0
+          min-width: 64px
+          vertical-align: top
+          background-clip: padding-box
+          padding: $margin

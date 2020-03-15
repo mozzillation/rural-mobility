@@ -31,7 +31,6 @@
     "github-slugger": "^1.2.1",
     "install": "^0.13.0",
     "node-sass": "^4.13.1",
-    "open-graph-scraper": "^3.6.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
