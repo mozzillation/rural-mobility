@@ -16,7 +16,17 @@ const LatestEdits = () => {
     query latestQuery {
       allFile(
         sort: { fields: modifiedTime, order: DESC }
-        filter: { extension: { eq: "mdx" } }
+        filter: {
+          extension: { eq: "mdx" }
+          id: {
+            nin: [
+              "413b9180-2fdf-5cad-8f98-aa42d1b6df04"
+              "0b7cfabd-91b1-59a7-86c6-abbfcc27dea6"
+              "e317983f-c00c-5e0b-8928-137e567267e2"
+              "20c1000e-1cfd-5d1b-a2e2-7ab56cb47dc8"
+            ]
+          }
+        }
         limit: 3
       ) {
         edges {
@@ -41,8 +51,6 @@ const LatestEdits = () => {
       }
     }
   `)
-
-  console.log(latest.allFile.edges)
 
   return (
     <section className="page-index__latest">

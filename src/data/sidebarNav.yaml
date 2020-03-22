@@ -2,26 +2,51 @@
   key: introduction
   breadcrumbTitle: Docs
   items:
-    - title: Progettare la mobilità rurale
+    - title: Indice
       link: /doc
+    - title: Che cos'è RMF?
+      link: /about
 
-- title: Design Thinking
+- title: 8 punti per la progettazione
   key: design-thinking
   breadcrumbTitle: Design
   items:
-    - title: 8 punti per la progettazione
-      link: doc/planning-framework
+    - title: Pianificare il TPR
+      link: doc/framework
+    - title: 1. Stabilire obiettivi e traguardi
+      link: doc/framework/01-goal-analysis
+    - title: 2. Condurre analisi delle condizioni
+      link: doc/framework/02-condition-analysis
+    - title: 3. Analizzare i bisogni
+      link: doc/framework/03-needs-analysis
+    - title: 4. Stabilire le priorità
+      link: doc/framework/04-prioritize
+    - title: 5. Stabilire un piano di finanziamento
+      link: doc/framework/05-financial-analysis
+    - title: 6. Sviluppare il piano
+      link: doc/framework/06-develop
+    - title: 7. Implementare e monitorare il piano
+      link: doc/framework/07-monitor
+    - title: 8. Ridefinire e ottimizzare
+      link: doc/framework/08-refining
 
-- title: Soluzioni Smart
+
+
+
+- title: Touchpoints
   key: smart-solution
-  breadcrumbTitle: Soluzioni Smart
+  breadcrumbTitle: Touchpoints
   items:
-    - title: Informare con touchpoints digitali
-      link: /doc/touchpoints
+    - title: Information Architecture
+      link: /doc/touchpoints/ia
     - title: Segnaletica in real-time
-      link: /doc/real-time-data
+      link: /doc/touchpoints/real-time-data
+    - title: Smart Ticketing
+      link: /doc/touchpoints/smart-ticketing
     - title: Integrazioni di terze parti
-      link: /doc/integrations
+      link: /doc/touchpoints/integrations
+
+
 
 - title: Contribuire
   key: contribute

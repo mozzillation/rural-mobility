@@ -5,6 +5,15 @@ module.exports = {
     author: `@mozzillation`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-page-progress",
+      options: {
+        includePaths: ["/about", { regex: "^/doc" }],
+        height: 3,
+        prependToBody: false,
+        color: `#19ab6c`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-analytics`,
