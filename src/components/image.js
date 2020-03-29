@@ -28,13 +28,7 @@ const Immagine = ({ src, caption }) => {
   return (
     <div className="imageWrapper">
       <Img fluid={image.node.fluid} />
-      <div className="caption">
-      {caption ?
-        caption
-        :
-        null
-      }
-      </div>
+      <div className="caption">{caption ? caption : null}</div>
     </div>
   )
 }

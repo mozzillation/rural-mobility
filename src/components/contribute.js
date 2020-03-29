@@ -33,8 +33,9 @@ export const ContributeFooter = () => {
           </h2>
           <p>
             RMF è un progetto open-source, chiunque può contribuire ai
-            contenuti: che tu sia un designer, un esperto del settore  o un semplice passeggero, offri le tue
-            competenze o la tua esperienza e rimetti in moto la mobilità rurale!
+            contenuti: che tu sia un designer, un esperto del settore o un
+            semplice passeggero, offri le tue competenze o la tua esperienza e
+            rimetti in moto la mobilità rurale!
           </p>
           <Link to="/doc/contribute" className="btn-big btn-secondary_pink">
             Contribuisci ora
