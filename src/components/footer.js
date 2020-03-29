@@ -31,11 +31,6 @@ const Footer = () => {
         <li>
           <Link to="/doc/code-of-conduct/">Codice di Condotta</Link>
         </li>
-        <li>/</li>
-
-        <li>
-          <Link to="/doc/cookie-policy/">Cookie Policy</Link>
-        </li>
       </div>
     </footer>
   )

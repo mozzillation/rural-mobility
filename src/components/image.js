@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Immagine = ({ src }) => {
+const Immagine = ({ src, caption }) => {
   const data = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -28,6 +28,13 @@ const Immagine = ({ src }) => {
   return (
     <div className="imageWrapper">
       <Img fluid={image.node.fluid} />
+      <div className="caption">
+      {caption ?
+        caption
+        :
+        null
+      }
+      </div>
     </div>
   )
 }

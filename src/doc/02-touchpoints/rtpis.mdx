@@ -18,7 +18,7 @@ In questa sezione, verrà illustrato come implementare un servizio di informazio
 
 Un sistema di informazioni sui passeggeri in tempo reale (anche detto RTPIS, real-time passenger information service) utilizza una varietà di tecnologie per tenere traccia delle posizioni degli autobus in tempo reale e utilizza queste informazioni per generare previsioni sugli arrivi alle fermate lungo il percorso. Quando queste informazioni vengono condivise con i passeggeri, quest’ultimi possono trascorrere il loro tempo in modo efficiente e raggiungere la fermata appena prima dell'arrivo del bus, oppure prendere mezzi di trasporto alternativi. Possono persino pianificare i loro viaggi molto prima di intraprenderli. Ciò renderà il sistema di trasporto pubblico competitivo e adatto ai passeggeri. L'uso di veicoli privati è ridotto quando più persone usano veicoli di trasporto pubblico, il che a sua volta riduce il traffico e l'inquinamento: l’integrazione di questo tipo di servizio può aumentare la fiducia dei passeggeri verso il trasporto pubblico locale. Questo tipo di sistema permette, dunque, di fornire informazioni in tempo reale ai passeggeri, permettendo loro di prendere decisioni ponderate per quanto riguarda modalità, rotte e orari.
 
-<Immagine src="rtpis-map.png" caption="ullala" />
+<Immagine src="rtpis-map.png" />
 
 Questo framework può essere suddiviso in due contesti: un contesto _pre-viaggio_ e un contesto _durante il viaggio_. Il primo contesto fornisce informazioni come orari, tariffe e percorsi molto prima dell'inizio del viaggio, attraverso internet. Il secondo, invece, fornice informazioni quali geolocalizzazione e punti di interesse mentre si è in movimento.
 
@@ -47,7 +47,7 @@ Attraverso un’applicazione o una pagina web, il veicolo assolve, in due fasi d
 
 Le fermate o le stazioni sono i punti in cui i passeggeri possono accedere all’ETA dei bus in arrivo. Per accedere a tali informazioni, qualora non fosse possibile installare un’unità video presso ogni fermata, si suggerisce di disporre un codice QR univoco: l’utente, scannerizzando il QR in questione, potrà visualizzare i dati della fermata e lo stato degli bus in arrivo direttamente dal proprio smartphone.
 
-<Immagine src="rtpis-wireframe2.png" caption="ullala" />
+<Immagine src="rtpis-wireframe2.png" caption="Esempio di flusso: un utente scansiona il QR presente alla pensilina e facilmente accede ad una pagina web con i dati di veicoli, orari e percorsi." />
 
 ## Server
 
@@ -70,8 +70,7 @@ All’interno di un database, il server deve collezionare informazioni relative 
 - Una tabella **ROUTE**: la tratta è data dalla somma di più nodi e dei rispettivi collegamenti. Per memorizzare le informazioni sul percorso, un percorso viene modellato come un insieme di nodi, che possono essere fermate o curve critiche. Nodi adiacenti creano collegamenti, pertanto, un percorso è caratterizzato da un insieme ordinato di collegamenti. La posizione corrente di un bus all’interno di un collegamento e il tempo stimato per raggiungere la fine del collegamento vengono calcolati e memorizzati nella tabella **POSITION** alla ricezione di un aggiornamento dal veicolo;
 - Una tabella **STOPS** dinamica in cui vengono elencate tutte le fermate, quali tratte le attraversano e l’ETA per ognuna di essa.
 
-[LINK DOWNLOAD](https://drive.google.com/open?id=1G7X6Rz0YltCWXar8JfdWOopPaaaM5UqbzS9L61jMvCQ)
-[](https://drive.google.com/open?id=1G7X6Rz0YltCWXar8JfdWOopPaaaM5UqbzS9L61jMvCQ)
+Per approfondire, [scarica un esempio di database](https://drive.google.com/open?id=1G7X6Rz0YltCWXar8JfdWOopPaaaM5UqbzS9L61jMvCQ).
 
 ## Creazione di un percorso
 

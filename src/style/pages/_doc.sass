@@ -72,7 +72,7 @@
 
       .imageWrapper
         max-width: 60rem
-        margin: $margin auto
+        margin: $margin auto $margin-small
         padding: 0 $margin-small
 
         .gatsby-image-wrapper
@@ -81,6 +81,15 @@
           overflow: hidden
           border-radius: $radius-large
           box-shadow: $shadow
+
+        .caption
+          @extend .module
+
+          text-align: center
+          font-size: $size-6
+          color: $grey
+          line-height: $size-5
+          margin: $margin auto $margin-small
 
       img
         width: 100%
@@ -138,6 +147,11 @@
         color: $green
         text-decoration: none
         border-bottom: 1px solid $green
+
+        +animate(opacity)
+
+        &:hover
+          opacity: 0.6
 
       li
         list-style: none
